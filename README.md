@@ -2,6 +2,9 @@
 
 <img src="demo/demo.gif" width=400 >
 
+## Updating
+* **2019.03.05 -- upload a 15x15 board [model](https://github.com/initial-h/AlphaZero_Gomoku_MPI/tree/master/model_15_15_5)**
+
 ## Overview
 This repo is based on [junxiaosong/AlphaZero_Gomoku](https://github.com/junxiaosong/AlphaZero_Gomoku), sincerely grateful for it.
 
@@ -37,9 +40,9 @@ Blog
 
 > tensorflow/tensorlayer/pygame install : 
 ```
-conda install tensorflow
-conda install tensorlayer
-conda install pygame
+pip install tensorflow
+pip install tensorlayer
+pip install pygame
 ```
 
 > mpi4py install [click here](https://www.jianshu.com/p/ba6f7c9415a0)
@@ -84,7 +87,7 @@ Most settings are the same with AlphaGo Zero, details as follow :
 * Dirichlet Noise
   * I add dirichlet noises in each node, it's different from paper that only add noises in root node. I guess AlphaGo Zero discard the whole tree after each move and rebuild a new tree, while here I keep the nodes under the chosen action, it's a little different
   * Weights between prior probabilities and noises are not changed here (0.75/0.25), though I think maybe 0.8/0.2 or even 0.9/0.1 is better because noises are added in every node
-* parameters in detail
+* Parameters in Detail
   * I try to maintain the original parameters in AlphaGo Zero paper, so as to testify it's generalization. Besides, I also  take training time and computer configuration into consideration.
   
     |Parameters Setting|      Gomoku  |AlphaGo Zero     |
@@ -121,7 +124,7 @@ Most settings are the same with AlphaGo Zero, details as follow :
   * Buffer Size : If the size is small, it's easy to fit by network but can't guarantee it's performance for only learning from these few data. If it's too large, much longer time and deeper network structure should be taken
   * Playout Number : If small, it's quick to finish a self-play game but can't guarantee kifu's quality. On the contrary with more playout times, better kifu will get but also take longer time
 
-## Future Work Can Try
+## Future Work
 * Continue to train (a larger board) and increase the playout number
 * Try some other parameters for better performance
 * Alter network structure
